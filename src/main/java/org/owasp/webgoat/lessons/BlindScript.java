@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.Base64;
 
 /*******************************************************************************
  * 
@@ -171,7 +172,7 @@ public class BlindScript extends LessonAdapter
         try {
             
             // Send data
-            String partner = new String(new sun.misc.BASE64Decoder().decodeBuffer(WEBGOAT_URL));
+            String partner = new String(Base64.getDecoder().decode(WEBGOAT_URL));
             URL url = new URL(partner);
             URLConnection conn = url.openConnection();
             conn.setDoOutput(true);
